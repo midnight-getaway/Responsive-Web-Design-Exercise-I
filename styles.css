@@ -1,0 +1,246 @@
+/* ============================================
+   Mobile-first base (default: small screens)
+   ============================================ */
+body {
+    font-family: Trebuchet MS, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* Box model: padding and margin */
+header {
+    background-color: #2F4F4F;
+    color: #ecf0f1;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 4px;
+}
+
+header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 1.75rem;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem 1.25rem;
+}
+
+nav a {
+    color: #ecf0f1;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sections: box model and visual hierarchy */
+main {
+    margin-bottom: 2rem;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 1.25rem;
+    background-color: #f8f9fa;
+    border-left: 4px solid #2F4F4F;
+}
+
+section h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.35rem;
+    color: #2c3e50;
+}
+
+article {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+article:last-child {
+    margin-bottom: 0;
+}
+
+/* Our Services: consistent spacing on all screens */
+#services article {
+    margin-bottom: 1.25rem;
+}
+
+#services article:last-child {
+    margin-bottom: 0;
+}
+
+article h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+p {
+    margin: 0 0 0.75rem 0;
+}
+
+aside {
+    padding: 1.25rem;
+    background-color: #e8eef2;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+}
+
+aside h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    padding: 1.5rem;
+    background-color: #2F4F4F;
+    color: #ecf0f1;
+    border-radius: 4px;
+}
+
+/* Contact section lives in footer: keep text readable on dark background */
+footer section,
+footer #contact {
+    background-color: transparent;
+    border-left: none;
+}
+
+footer h2,
+footer address,
+footer address p {
+    color: #ecf0f1;
+}
+
+footer a {
+    color: #b8d4e3;
+}
+
+footer a:hover {
+    color: #ffffff;
+}
+
+footer a:focus {
+    outline: 2px solid #ecf0f1;
+    outline-offset: 2px;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+#copyright {
+    margin-top: 1rem;
+    font-size: 0.875rem;
+    color: #ffffff;
+    text-align: center;
+}
+
+/* ============================================
+   Tablet: 768px and up
+   ============================================ */
+@media (min-width: 768px) {
+    body {
+        max-width: 720px;
+        padding: 0 1.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    nav ul {
+        gap: 1.5rem;
+    }
+
+    section h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Two-column grid for services section articles */
+    #services {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    #services > h2 {
+        grid-column: 1 / -1;
+        margin-bottom: 0.25rem;
+    }
+
+    #services article {
+        margin-bottom: 0;
+    }
+}
+
+/* ============================================
+   Desktop: 1024px and up
+   ============================================ */
+@media (min-width: 1024px) {
+    body {
+        max-width: 900px;
+        padding: 0 2rem;
+    }
+
+    /* Main content and aside side-by-side */
+    main {
+        display: grid;
+        grid-template-columns: 1fr 280px;
+        gap: 2rem;
+        align-items: start;
+    }
+
+    main > section,
+    main > aside {
+        margin-bottom: 0;
+    }
+
+    /* Aside sticks with content; sections span full grid width for clarity */
+    #home,
+    #about,
+    #services {
+        grid-column: 1;
+    }
+
+    aside {
+        grid-column: 2;
+        grid-row: 1 / -1;
+    }
+
+    /* Services: two-column grid with clear spacing in main column */
+    #services {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem 2rem;
+        padding: 1.5rem;
+    }
+
+    #services > h2 {
+        grid-column: 1 / -1;
+        margin-bottom: 0.25rem;
+    }
+
+    #services article {
+        margin-bottom: 0;
+    }
+}
