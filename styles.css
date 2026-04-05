@@ -123,6 +123,11 @@ header h1 {
     line-height: 1.2;
 }
 
+/* Last name always renders as one unit (paired with Van&nbsp;Zandt in HTML) */
+.name-last {
+    white-space: nowrap;
+}
+
 nav ul {
     list-style: none;
     margin: 0;
@@ -244,6 +249,28 @@ article h3 {
 
 article h3:not(:first-child) {
     margin-top: 1.35rem;
+}
+
+article .education-list {
+    margin: 0 0 0.85rem;
+    padding-left: 1.35rem;
+    max-width: 62ch;
+    color: var(--text-secondary);
+    list-style-type: disc;
+}
+
+article .education-list li {
+    margin-bottom: 0.55rem;
+    padding-left: 0.25rem;
+}
+
+article .education-list li:last-child {
+    margin-bottom: 0;
+}
+
+article .education-list strong {
+    color: var(--text);
+    font-weight: 600;
 }
 
 article h3::before {
@@ -399,11 +426,19 @@ footer section:hover {
     box-shadow: none;
 }
 
+.contact-location {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--on-dark-muted);
+    margin: 0 0 0.5rem;
+    max-width: 46rem;
+}
+
 .contact-intro {
     font-size: 0.9375rem;
     line-height: 1.55;
     color: var(--on-dark-muted);
-    margin-bottom: 1rem;
+    margin: 0 0 1rem;
     max-width: 46rem;
 }
 
@@ -446,6 +481,41 @@ footer p {
 
 #copyright small {
     font-size: inherit;
+}
+
+/* Back to top (after in-page nav / scroll) */
+.back-to-top {
+    position: fixed;
+    z-index: 100;
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1.25rem, env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+    background: linear-gradient(145deg, var(--header-bg) 0%, var(--header-bg-end) 100%);
+    color: var(--on-dark);
+    box-shadow: var(--shadow-lg);
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+}
+
+.back-to-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px -6px rgba(var(--shadow-tint), 0.18);
+}
+
+.back-to-top:focus-visible {
+    outline: 2px solid var(--accent-bright);
+    outline-offset: 3px;
+}
+
+.back-to-top[hidden] {
+    display: none;
 }
 
 /* Tablet: project cards side by side */
