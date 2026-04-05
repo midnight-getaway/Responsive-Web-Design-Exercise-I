@@ -468,8 +468,9 @@ footer p {
     }
 }
 
-/* Laptop / desktop: Skills & tools sidebar + tighter Intro / Experience */
-@media (min-width: 1024px) {
+/* Laptop / desktop: Skills & tools sidebar + tighter Intro / Experience
+   grid-template-areas keeps the aside merged in column 2 (more reliable than grid-row: 1 / -1) */
+@media (min-width: 900px) {
     body {
         max-width: 72rem;
         padding-inline: clamp(1.5rem, 4vw, 3rem);
@@ -477,7 +478,11 @@ footer p {
 
     main {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) min(20rem, 32%);
+        grid-template-columns: minmax(0, 1fr) min(19rem, 34%);
+        grid-template-areas:
+            "intro aside"
+            "experience aside"
+            "projects aside";
         gap: 1.25rem 2rem;
         align-items: start;
     }
@@ -486,31 +491,30 @@ footer p {
         margin-bottom: 0;
     }
 
-    #intro,
-    #experience,
-    #projects {
-        grid-column: 1;
-    }
-
-    aside {
-        grid-column: 2;
-        grid-row: 1 / -1;
-        position: sticky;
-        top: 1.25rem;
-        align-self: start;
-    }
-
-    /* Let the sidebar list use the full column width */
-    main aside .aside-list {
-        max-width: none;
-    }
-
     #intro {
+        grid-area: intro;
         padding-bottom: 0.55rem;
     }
 
     #experience {
+        grid-area: experience;
         margin-top: -1.15rem;
         padding-top: 0.85rem;
+    }
+
+    #projects {
+        grid-area: projects;
+    }
+
+    aside {
+        grid-area: aside;
+        position: sticky;
+        top: 1.25rem;
+        align-self: start;
+        min-width: 0;
+    }
+
+    main aside .aside-list {
+        max-width: none;
     }
 }
