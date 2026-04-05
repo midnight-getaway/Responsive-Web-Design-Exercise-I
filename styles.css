@@ -251,8 +251,7 @@ article h3:not(:first-child) {
     margin-top: 1.35rem;
 }
 
-article .education-list,
-article .career-list {
+article .education-list {
     margin: 0 0 0.85rem;
     padding-left: 1.35rem;
     max-width: 62ch;
@@ -260,19 +259,16 @@ article .career-list {
     list-style-type: disc;
 }
 
-article .education-list li,
-article .career-list li {
+article .education-list li {
     margin-bottom: 0.55rem;
     padding-left: 0.25rem;
 }
 
-article .education-list li:last-child,
-article .career-list li:last-child {
+article .education-list li:last-child {
     margin-bottom: 0;
 }
 
-article .education-list strong,
-article .career-list strong {
+article .education-list strong {
     color: var(--text);
     font-weight: 600;
 }
